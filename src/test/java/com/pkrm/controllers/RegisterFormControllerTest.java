@@ -37,6 +37,7 @@ public class RegisterFormControllerTest {
 		when(service.retrieveUserDetails(userId)).thenReturn(user);
 		PowerMockito.mockStatic(UserUtils.class);
 		PowerMockito.when(UserUtils.convertNameToUpperCase(anyString())).thenReturn("name");
+		
 		ResponseEntity<?> response = controller.getUserDetails(userId);
 		
 		assertSame(user, response.getBody());
