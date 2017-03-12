@@ -14,7 +14,7 @@ import com.pkrm.domain.User;
 import com.pkrm.exception.DataAccessException;
 
 @Repository
-public class RegisterFormRepository {
+public class RegisterFormRepository implements IRegisterFormRepository{
 
 	/*@Autowired
 	private MongoTemplate mongoTemplate;
@@ -27,6 +27,7 @@ public class RegisterFormRepository {
 		this.mongoTemplate = mongoTemplate;
 	}*/
 
+	@Override
 	public void saveUser(User user) {
 		/*try {
 			mongoTemplate.insert(user); //only insert 
@@ -37,6 +38,7 @@ public class RegisterFormRepository {
 
 	}
 
+	@Override
 	public User getUserDetails(String userId) {
 		User user = new User();
 		/*try {
@@ -49,6 +51,7 @@ public class RegisterFormRepository {
 		return user;
 	}
 
+	@Override
 	public void saveEx(Example ex) {
 		/*try {
 		mongoTemplate.insert(ex);
@@ -57,6 +60,7 @@ public class RegisterFormRepository {
 	}*/
 	}
 
+	@Override
 	public Example get(String deptId) {
 		Example user = new Example();
 		/*try {
@@ -69,6 +73,7 @@ public class RegisterFormRepository {
 		return user;
 	}
 
+	@Override
 	public List<User> retrieveUsers() {
 		List<User> users = Lists.newArrayList();
 		/*

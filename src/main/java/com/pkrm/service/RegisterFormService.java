@@ -9,13 +9,14 @@ import org.apache.commons.lang3.StringUtils;
 import com.pkrm.domain.Example;
 import com.pkrm.domain.User;
 import com.pkrm.exception.ValidationFailedException;
+import com.pkrm.repository.IRegisterFormRepository;
 import com.pkrm.repository.RegisterFormRepository;
 
 @Service
 public class RegisterFormService {
 
 	@Autowired
-	private RegisterFormRepository registerFormRepository;
+	private IRegisterFormRepository registerFormRepository;
 
 	public void saveUser(User user) {
 		validateUserDetails(user);

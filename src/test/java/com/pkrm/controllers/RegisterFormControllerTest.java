@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
@@ -65,7 +66,8 @@ public class RegisterFormControllerTest {
 		User user = new UserBuilder().withUserId(userId).build();
 		when(service.retrieveUserDetails(userId)).thenReturn(user);
 		PowerMockito.mockStatic(UserUtils.class);
-		PowerMockito.when(UserUtils.convertNameToUpperCase(anyString())).thenReturn("name");
+		Mockito.when(UserUtils.convertNameToUpperCase(anyString())).thenReturn("name");
+		//PowerMockito.when(UserUtils.convertNameToUpperCase(anyString())).thenReturn("name");
 		
 		ResponseEntity<?> response = controller.getUserDetails(userId);
 		
