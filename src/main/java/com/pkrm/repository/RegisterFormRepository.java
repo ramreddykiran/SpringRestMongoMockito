@@ -2,16 +2,11 @@ package com.pkrm.repository;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 import org.testng.collections.Lists;
 
 import com.pkrm.domain.Example;
 import com.pkrm.domain.User;
-import com.pkrm.exception.DataAccessException;
 
 @Repository
 public class RegisterFormRepository implements IRegisterFormRepository{

@@ -2,6 +2,7 @@ package com.pkrm.repository.stub;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
 import org.testng.collections.Lists;
 
 import com.pkrm.builders.UserBuilder;
@@ -10,6 +11,7 @@ import com.pkrm.domain.Example;
 import com.pkrm.domain.User;
 import com.pkrm.repository.IRegisterFormRepository;
 
+@Repository
 public class RegisterFormRepositoryStub implements IRegisterFormRepository {
 	
 
