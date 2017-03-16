@@ -1,16 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+ </head>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <body>
-<div ng-app="userapp" ng-controller="userController">
-UserId: <input type="text" name="userId" ng-model="userId" required><br>
-<button ng-click="getUserDetails">get user</button>
 
-<p>user details:
+<p>Users details</p>
+
+<div ng-app="usersapp" ng-controller="userCtrl">
+
+UserId: <input id="uId" type="text" ng-model="userId" required><br>
+<button ng-click="getUserDetails()">get user</button><br>
+<table>
+<tr ng-repeat="user in users">
+<td>{{userId}}</td>
+<td>{{firstName}}</td>
+<td>{{firstName}}</td>
+</tr>
+</table>
+<br>
+ UserId:{{userId}}
 
 </div>
 
-<script type="text/javascript" src="angular.min.js"></script>
-<script type="text/javascript">
+<script>
+var app = angular.module('usersapp', []);
+app.controller('userCtrl', function($scope, $http) {
+	$http({
+		headers : {
+			'MediaTypes' : 'application/json',
+			'Accept' : 'application/json'
+		},
+		url:"/powermockex/resources/user-details?user-id=1232",
+		method:"GET"
+		}).then(function mySuccess(response){
+			$scope.getUserDetails=function(){response.data;};
+			$scope.users=response.data;
+		},function myError(response){
+			$scope.statusmessage=response.statusText;
+		});
+	});
+
+</script>
+
 </body>
 </html>

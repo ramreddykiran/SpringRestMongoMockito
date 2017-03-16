@@ -54,9 +54,6 @@
 		<property name="objectMapper" ref="jacksonObjectMapper" />
 	</bean>
     	
-
-	
-
 	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="mediaTypes">
 			<map>

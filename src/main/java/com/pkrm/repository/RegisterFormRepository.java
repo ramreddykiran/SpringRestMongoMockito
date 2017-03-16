@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 import org.testng.collections.Lists;
 
+import com.pkrm.builders.UserBuilder;
 import com.pkrm.domain.Example;
 import com.pkrm.domain.User;
 
@@ -35,7 +36,7 @@ public class RegisterFormRepository implements IRegisterFormRepository{
 
 	@Override
 	public User getUserDetails(String userId) {
-		User user = new User();
+		User user = new UserBuilder().build();
 		/*try {
 			Query query = new Query();
 			query.addCriteria(new Criteria().and("_id").is(userId));
