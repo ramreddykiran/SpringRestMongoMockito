@@ -1,4 +1,4 @@
-package com.pkrm.exception;
+package com.nisum.exception;
 
 public class DataAccessException extends RuntimeException {
 

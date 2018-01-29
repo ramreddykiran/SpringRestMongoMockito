@@ -1,13 +1,13 @@
-package com.pkrm.repository;
+package com.nisum.repository;
 
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 import org.testng.collections.Lists;
 
-import com.pkrm.builders.UserBuilder;
-import com.pkrm.domain.Example;
-import com.pkrm.domain.User;
+import com.nisum.builders.UserBuilder;
+import com.nisum.domain.Example;
+import com.nisum.domain.User;
 
 @Repository
 public class RegisterFormRepository implements IRegisterFormRepository{

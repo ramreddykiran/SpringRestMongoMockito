@@ -1,9 +1,9 @@
-package com.pkrm.repository;
+package com.nisum.repository;
 
 import java.util.List;
 
-import com.pkrm.domain.Example;
-import com.pkrm.domain.User;
+import com.nisum.domain.Example;
+import com.nisum.domain.User;
 
 public interface IRegisterFormRepository {
 

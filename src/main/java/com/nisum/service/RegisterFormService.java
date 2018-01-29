@@ -1,4 +1,4 @@
-package com.pkrm.service;
+package com.nisum.service;
 
 import java.util.List;
 
@@ -6,10 +6,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pkrm.domain.Example;
-import com.pkrm.domain.User;
-import com.pkrm.exception.ValidationFailedException;
-import com.pkrm.repository.IRegisterFormRepository;
+import com.nisum.domain.Example;
+import com.nisum.domain.User;
+import com.nisum.exception.ValidationFailedException;
+import com.nisum.repository.IRegisterFormRepository;
 
 @Service
 public class RegisterFormService {

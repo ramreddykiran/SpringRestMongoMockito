@@ -1,10 +1,7 @@
-package com.pkrm.controllers;
+package com.nisum.controllers;
 
 import java.util.List;
 
-import lombok.Setter;
-
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,16 +13,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.pkrm.domain.Example;
-import com.pkrm.domain.User;
-import com.pkrm.service.RegisterFormService;
-import com.pkrm.util.UserUtils;
+import com.nisum.domain.Example;
+import com.nisum.domain.User;
+import com.nisum.service.RegisterFormService;
 
 @Controller
 public class RegisterFormController {
 
 	@Autowired
-	@Setter
+	//@Setter
 	private RegisterFormService registerFormservice;
 	
 	 @RequestMapping(value="/save-employee", method = RequestMethod.POST)
@@ -44,12 +40,6 @@ public class RegisterFormController {
 			 User response = registerFormservice.retrieveUserDetails(userId);
 			 if(response == null) {
 				 return new ResponseEntity<String>("No records found for userId "+userId, HttpStatus.NOT_FOUND);
-			 }
-			 if(StringUtils.isNotBlank(response.getFirstName())) {
-				 response.setFirstName(UserUtils.convertNameToUpperCase(response.getFirstName()));
-			 }
-			 if(StringUtils.isNotBlank(response.getLastName())) {
-				 response.setLastName(UserUtils.convertNameToUpperCase(response.getLastName()));
 			 }
 			 return new ResponseEntity<User>(response, HttpStatus.OK);
 		 } catch(Exception e) {

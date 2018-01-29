@@ -1,8 +1,8 @@
-package com.pkrm.builders;
+package com.nisum.builders;
 
 import org.apache.commons.lang3.builder.Builder;
 
-import com.pkrm.domain.User;
+import com.nisum.domain.User;
 
 public class UserBuilder implements Builder<User>{
 	

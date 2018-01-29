@@ -1,4 +1,4 @@
-package com.pkrm.controllers;
+package com.nisum.controllers;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
@@ -15,10 +15,7 @@ import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -27,11 +24,11 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.google.gson.Gson;
-import com.pkrm.builders.UserBuilder;
-import com.pkrm.domain.Example;
-import com.pkrm.domain.User;
-import com.pkrm.service.RegisterFormService;
-import com.pkrm.util.UserUtils;
+import com.nisum.builders.UserBuilder;
+import com.nisum.controllers.RegisterFormController;
+import com.nisum.domain.Example;
+import com.nisum.domain.User;
+import com.nisum.service.RegisterFormService;
 
 /**
  * 
@@ -41,8 +38,8 @@ import com.pkrm.util.UserUtils;
  *and control methods
  *included static methods mocking, verifying the results with ArgumentCaptor
  */
-@PrepareForTest(UserUtils.class)
-@RunWith(PowerMockRunner.class)
+
+@RunWith(MockitoJUnitRunner.class)
 public class RegisterFormControllerTest {
 	
 	private MockMvc mockMvc;
@@ -64,9 +61,6 @@ public class RegisterFormControllerTest {
 		String userId="1234";
 		User user = new UserBuilder().withUserId(userId).build();
 		when(service.retrieveUserDetails(userId)).thenReturn(user);
-		PowerMockito.mockStatic(UserUtils.class);
-		Mockito.when(UserUtils.convertNameToUpperCase(anyString())).thenReturn("name");
-		//PowerMockito.when(UserUtils.convertNameToUpperCase(anyString())).thenReturn("name");
 		
 		ResponseEntity<?> response = controller.getUserDetails(userId);
 		
